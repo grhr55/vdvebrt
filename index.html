@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CROWN</title>
+    <!-- Ссылка на App Store -->
+    <meta name="store-url" content="https://apps.apple.com/us/app/caliente-club/id6503647910">
+    <!-- Ссылка на Google Play Store (если требуется) -->
+    <meta name="playstore-url" content="https://apps.apple.com/us/app/caliente-club/id6503647910">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+
+        }
+        .open-button {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: transparent; /* Делает кнопку невидимой */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 30px;
+            pointer-events: none; /* Отключает взаимодействие с кнопкой */
+        }
+        .open-button.visible {
+            pointer-events: all; /* Включает взаимодействие с кнопкой */
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://grhr55.github.io/COROWN/" title="Трансляция сайта"></iframe>
+    <button class="open-button" id="storeButton" onclick="openStore()">Open Store</button>
+
+    <script>
+        function openStore() {
+            var storeUrl = document.querySelector('meta[name="store-url"]').getAttribute('content');
+            if (!storeUrl) {
+                console.error('Store URL is missing or invalid.');
+                return;
+            }
+            
+            console.log('Store URL:', storeUrl);
+            window.open(storeUrl, '_blank');
+        }
+
+        function showStoreButton() {
+            document.getElementById('storeButton').classList.add('visible');
+        }
+
+        function hideStoreButton() {
+            document.getElementById('storeButton').classList.remove('visible');
+        }
+
+        // Показывает кнопку через 10 секунд
+        setTimeout(showStoreButton, 10000);
+
+        // Обработчик изменения размера окна
+        window.addEventListener('resize', function() {
+            // Реализуйте логику адаптации контента к новому размеру
+        });
+    </script>
+</body>
+</html>
